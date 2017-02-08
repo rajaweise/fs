@@ -7,7 +7,14 @@ var multer = require('multer');
 var upload = multer({dest: './uploads/'});
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fanspotWalkingSkeletonDb');
+
+var serverEnvironment = 'Deployment';
+if (serverEnvironment === 'Development') {
+    var mongoDbUri = 'mongodb://localhost/fanspotWalkingSkeletonDb';
+} else if (serverEnvironment === 'Deployment') {
+    var mongoDbUri = 'mongodb://public:da13DA!#@ds029745.mlab.com:29745/heroku_8v18bc3z';
+}
+mongoose.connect(mongoDbUri);
 var conn = mongoose.connection;
 
 var gfs;
