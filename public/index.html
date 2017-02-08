@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="uploadApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>upload File</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/core.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+        <script type="text/javascript" src="https://code.angularjs.org/1.5.6/angular-route.js"></script>
+        <script type="text/javascript" src="https://code.angularjs.org/1.5.6/angular-resource.js"></script>
+    <!-- Application Script -->
+        <script type="text/javascript" src="src/upload/app.js"></script>
+    <!-- Services -->
+        <script type="text/javascript" src="src/upload/uploadApi.js"></script>
+        <script type="text/javascript" src="src/upload/fileSearchApi.js"></script>
+    <!-- Controllers -->
+        <script type="text/javascript" src="src/upload/upload.controller.js"></script>
+        <script type="text/javascript" src="src/upload/searchFile.controller.js"></script>
+        <script type="text/javascript" src="src/upload/filemodel.directive.js"></script>
+
+    </head>
+    <body>
+        <div ng-controller='UploadController'>
+            <input type="file" file-model="myFile"/>
+            <button ng-click="uploadFile()">upload me</button>
+        </div>
+        <div ng-controller='SearchFileController'>
+            <form>
+            <p>Search must match the name of the file exactly, including extension (ex. jpg). It will return the first entry with that file name.</p>
+            <input type='text' ng-model='fileName'/>
+                   <button ng-click='searchFile()'>Search me</button>
+            </form>
+            <div>
+                <a href="{{ searchUrl }}" target="_self">download me</a>
+            </div>
+            <div>
+                <p>File data should appear as a string below after a few moments if the search was successful</p>
+                <p>{{ searchedFile }}</p>
+            </div>
+        </div>
+    </body>
+</html>
