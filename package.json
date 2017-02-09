@@ -18,7 +18,8 @@
     "nodeman": "^1.1.2"
   },
   "scripts": {
-    "test": "C:/FS/node_modules/.bin/mocha --reporter spec"
+    "test": "C:/FS/node_modules/.bin/mocha --reporter spec",
+    "start": "node index.js"
   },
   "keywords": [
     "fanspot"
