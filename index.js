@@ -8,7 +8,7 @@ var upload = multer({dest: './uploads/'});
 
 var mongoose = require('mongoose');
 
-var serverEnvironment = 'Development';
+var serverEnvironment = 'Deployment';
 if (serverEnvironment === 'Development') {
     var mongoDbUri = 'mongodb://localhost/fanspotWalkingSkeletonDb';
 } else if (serverEnvironment === 'Deployment') {
@@ -72,9 +72,5 @@ conn.once('open', function () {
 app.use(express.static('./public'));
 
 if (!module.parent) {
-        if (serverEnvironment === 'Development') {
-            app.listen(3000);
-        } else if (serverEnvironment === 'Deployment') {
-            app.listen(443);
-        }
+    app.listen(3000);
 }
