@@ -16,21 +16,103 @@
         <script type="text/javascript" src="src/upload/upload.controller.js"></script>
         <script type="text/javascript" src="src/upload/searchFile.controller.js"></script>
         <script type="text/javascript" src="src/upload/filemodel.directive.js"></script>
+        <style>
+        .center {
+                margin: auto;
+            }
+        .container {
+                position: relative;
+                margin: auto;
+                overflow: hidden;
+            }
+            .inline {
+                display: inline;
+            }
+            .floatLeft {
+               float: left;
+            }
+            .floatRight {
+                float: right;
+            }
+            .clearLeft {
+                clear: left;
+            }
+            .clearRight {
+                clear: Right;
+            }
+        /*layout*/
+            .noPadding {
+                padding: 0px;
+            }
+            .noTopOrBottomMargin {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        /*themes*/
+            .textStandard {
+                font-size: 1.3em;
+                font-family: sans-serif;
+            }
+            .textCenter {
+                text-align: center;
+            }
+            .goldFont {
+                color: #fffc4d;
+            }
+            .textUnderline {
+                text-decoration: underline;
+            }
+            .roundBorders {
+                border-radius: 6px;
+            }
+        /*elements*/
+            body {
+                background-color: #f5f9f9;
+            }
+            main {
+                width: 68.19%;
+                background-color: #d0d9f9;
+                min-height: 1000px;
+            }
+        .button {
+            background-color: #dfe5ed;
+            border: 0.5px solid #85898e;
+            width: 206px;
+            min-height: 46px;
+            font-size: 1.2em;
+        }
+        .uploadButton {
+            background-color: #dfe5ed;
+            border: 0.5px solid #85898e;
+            min-height: 20px;
+            font-size: 1.2em;
+        }
+        .button:hover {background-color: #ddd;}
+            .modularSection {
+                width: 92.29%;
+                background-color: #d0d0d0;
+                padding: 8px;
+                border: 0.5px solid black;
+            }
+        </style>
 
     </head>
-    <body>
-        <div ng-controller='UploadController'>
-            <input type="file" file-model="myFile"/>
-            <button ng-click="uploadFile()">upload me</button>
+    <body class="noPadding noTopOrBottomMargin textStandard">
+        <h1 class="textCenter">Upload and Download Anything!</h1>
+        <div class="center container noTopOrBottomMargin roundBorders modularSection"ng-controller='UploadController'>
+            <h2 class="textCenter">Upload</h2>
+            <input class="center roundBorders button uploadButton" type="file" file-model="myFile"/>
+            <button ng-click="uploadFile()" class="center roundBorders button uploadButton">upload me</button>
         </div>
-        <div ng-controller='SearchFileController'>
-            <form>
+        <div class="container noTopOrBottomMargin roundBorders modularSection" ng-controller='SearchFileController'>
+            <h2 class="textCenter">Download</h2>
+            <form class="center">
             <p>Search must match the name of the file exactly, including extension (ex. jpg). It will return the first entry with that file name.</p>
-            <input type='text' ng-model='fileName'/>
-                   <button ng-click='searchFile()'>Search me</button>
+            <input  class="centerText" type='text' ng-model='fileName'/>
+                   <button class="center roundBorders button uploadButton" ng-click='searchFile()'>Search me</button>
             </form>
             <div>
-                <a href="{{ searchUrl }}" target="_self">download me</a>
+                <a class="roundBorders button uploadButton" href="{{ searchUrl }}" target="_self">download me</a>
             </div>
             <div>
                 <p>File data should appear as a string below after a few moments if the search was successful</p>
