@@ -71,6 +71,8 @@ conn.once('open', function () {
 
 app.use(express.static('./public'));
 
+var port = process.env.PORT || 3000;
+
 if (!module.parent) {
-    app.listen(3000);
+    app.listen(port);
 }
