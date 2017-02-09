@@ -8,7 +8,7 @@ var upload = multer({dest: './uploads/'});
 
 var mongoose = require('mongoose');
 
-var serverEnvironment = 'Deployment';
+var serverEnvironment = 'Development';
 if (serverEnvironment === 'Development') {
     var mongoDbUri = 'mongodb://localhost/fanspotWalkingSkeletonDb';
 } else if (serverEnvironment === 'Deployment') {
