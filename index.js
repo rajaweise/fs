@@ -72,5 +72,9 @@ conn.once('open', function () {
 app.use(express.static('./public'));
 
 if (!module.parent) {
-    app.listen(3000);
+        if (serverEnvironment === 'Development') {
+            app.listen(3000);
+        } else if (serverEnvironment === 'Deployment') {
+            app.listen(443);
+        }
 }
